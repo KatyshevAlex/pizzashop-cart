@@ -1,7 +1,6 @@
 package com.pizzashop.cart.controller;
 
 
-import com.netflix.discovery.converters.Auto;
 import com.pizzashop.cart.annotations.LogExecutionTime;
 import com.pizzashop.cart.enity.Customer;
 import com.pizzashop.cart.enity.Pizza;
@@ -11,22 +10,20 @@ import com.pizzashop.cart.service.interfaces.IDaoService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
 import java.util.List;
 
 
 @RestController
 @RequestMapping("/order")
+@AllArgsConstructor
 public class CartController {
     private final String authHeader = "Authorization-jwt";
 
-    @Autowired
     ICartService mainService;
-    @Autowired
     IDaoService daoService;
 
     @GetMapping("/test")
@@ -108,6 +105,4 @@ public class CartController {
         String newToken = mainService.updateCustomer(token, customer);
         return newToken;
     }
-
-
 }

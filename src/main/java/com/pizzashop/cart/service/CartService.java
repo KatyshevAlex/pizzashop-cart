@@ -5,6 +5,7 @@ import com.pizzashop.cart.enity.Customer;
 import com.pizzashop.cart.enity.Pizza;
 import com.pizzashop.cart.service.feign.LoginFeign;
 import com.pizzashop.cart.service.interfaces.ICartService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -13,10 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class CartService implements ICartService {
-    @Autowired
+
     private PasswordEncoder passwordEncoder;
-    @Autowired
     private LoginFeign loginFeign;
 
     @Override

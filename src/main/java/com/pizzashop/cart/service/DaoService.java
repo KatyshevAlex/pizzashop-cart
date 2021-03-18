@@ -4,14 +4,16 @@ import com.pizzashop.cart.enity.Pizza;
 import com.pizzashop.cart.enity.Topping;
 import com.pizzashop.cart.service.feign.DaoFeign;
 import com.pizzashop.cart.service.interfaces.IDaoService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class DaoService implements IDaoService {
-    @Autowired
+
     DaoFeign daoFeign;
 
     @Override
